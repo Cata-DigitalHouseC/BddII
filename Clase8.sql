@@ -1,0 +1,19 @@
+CREATE TEMPORARY TABLE IF NOT EXISTS prueba (id INT, nombre VARCHAR(50));
+
+/*tXN CON ROLLBACK*/
+START TRANSACTION;
+INSERT INTO prueba VALUES(1,'Lucas');
+INSERT INTO prueba VALUES(2,'Cata');
+ROLLBACK;
+SELECT * FROM prueba;
+
+/*Txn con commit*/
+START TRANSACTION;
+INSERT INTO prueba VALUES(3,'Lucas');
+INSERT INTO prueba VALUES(4,'Cata');
+COMMIT;
+SELECT * FROM prueba;
+
+
+
+
